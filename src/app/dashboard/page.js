@@ -1,7 +1,7 @@
 "use client"
 
 import { MdLayers } from "react-icons/md";
-import Map from "../../../../components/map";
+import Map from "../../../components/Map";
 import { useState } from "react";
 
 const ObservationLayer = () => {

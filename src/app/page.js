@@ -1,8 +1,8 @@
 "use client"
 
 import { MdLayers } from "react-icons/md";
-import Map from "../../../components/map";
 import { useState } from "react";
+import Map from "../../components/Map";
 
 const ObservationLayer = () => {
     return (
@@ -192,7 +192,7 @@ export default function PageHandler() {
 
             </div>
 
-            <Map />
+            <Map/>
 
 
 
