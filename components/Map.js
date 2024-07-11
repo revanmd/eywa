@@ -1,8 +1,15 @@
 // components/Map.js
 import dynamic from 'next/dynamic';
 
-const Map = dynamic(() => import('./LeafletMap'), {
-  ssr: false
-});
+const LeafletMap = dynamic(
+  () => import('./LeafletMap'), 
+  {
+    ssr: false
+  }
+);
+
+const Map = (props) => {
+  return <LeafletMap {...props} />;
+};
 
 export default Map;

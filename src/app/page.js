@@ -143,6 +143,9 @@ const ForecastLayer = () => {
 export default function PageHandler() {
     const [activeLayer, setActiveLayer] = useState("observation")
     const [isToogleLayerOpen, setIsToogleLayerOpen] = useState(true)
+    const [isToggleMapSettingOpen, setIsToggleMapSettingOpen] = useState(false)
+
+    const [mapType, setMapType] = useState(0)
 
     return (
         <main className="min-h-screen">
@@ -160,11 +163,11 @@ export default function PageHandler() {
                         </div>
                     </div>
                     <div className="text-xl">
-                       {isToogleLayerOpen ? "-": "+"}
+                        {isToogleLayerOpen ? "-" : "+"}
                     </div>
                 </div>
 
-                <div 
+                <div
                     className={
                         `overflow-hidden transition-all duration-500 ease-in-out ${isToogleLayerOpen ? 'max-h-96' : 'max-h-0'}`
                     }
@@ -192,7 +195,85 @@ export default function PageHandler() {
 
             </div>
 
-            <Map/>
+            <Map
+                mapType={mapType}
+            />
+
+            <div
+                className="fixed bottom-5 right-5 w-48 p-3 rounded-lg bg-indigo-500 border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-sm dark:bg-zinc-200/30 dark:from-inherit" style={{ zIndex: 10000, backdropFilter: "blur(3px)" }}>
+                <div className="text-sm flex items-center justify-between cursor-pointer text-black"
+                    onClick={() => {
+                        setIsToggleMapSettingOpen(!isToggleMapSettingOpen);
+                    }}
+                >
+                    <div className="flex items-center">
+                        <MdLayers className="text-xl" />
+                        <div className="ml-2 font-bold text-sm">
+                            Map
+                        </div>
+                    </div>
+                    <div className="text-xl">
+                        {isToggleMapSettingOpen ? "-" : "+"}
+                    </div>
+                </div>
+                <div className={
+                    `overflow-hidden transition-all duration-500 ease-in-out ${isToggleMapSettingOpen ? 'max-h-96' : 'max-h-0'}`
+                }>
+
+                    <div
+                        className="mt-3"
+                        onClick={() => {
+                            setMapType(0)
+                        }}
+                    >
+                        <div className="flex space-x-2 rounded bg-slate-200 px-3 py-1 items-center text-black font-medium cursor-pointer">
+                            <img
+                                src="/map-02.png"
+                                className="w-7"
+                            />
+                            <div className="text-xs">
+                                Map Leaflet
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        className="mt-2"
+                        onClick={() => {
+                            setMapType(1)
+                        }}
+                    >
+                        <div className="flex space-x-2 rounded bg-slate-200 px-3 py-1 items-center text-black font-medium cursor-pointer">
+                            <img
+                                src="/map-01.png"
+                                className="w-7"
+                            />
+                            <div className="text-xs">
+                                Google Satellite
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="text-xs text-black font-semibold mt-3">
+                        Overlay
+
+                        <div className="flex block items-center mt-3">
+                            <input type="checkbox"/>
+                            <div className="inline ml-3">
+                                Topografi
+                            </div>
+                        </div>
+
+                        <div className="flex block items-center mt-2">
+                            <input type="checkbox"/>
+                            <div className="inline ml-3">
+                                Wilayah Administrasi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
 
