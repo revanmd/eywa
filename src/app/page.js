@@ -149,7 +149,7 @@ export default function PageHandler() {
 
     return (
         <main className="min-h-screen">
-            <div className="fixed lg:top-10 lg:left-10 top-0 left-0 lg:w-80 w-screen p-4 rounded-lg bg-indigo-500 border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-sm dark:bg-zinc-200/30 dark:from-inherit" style={{ zIndex: 10000, backdropFilter: "blur(3px)" }}>
+            <div className="fixed lg:top-10 lg:left-10 top-0 left-0 lg:w-80 w-screen p-4 rounded-lg border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-sm bg-zinc-200/30 from-inherit" style={{ zIndex: 10000, backdropFilter: "blur(3px)" }}>
 
                 <div className="text-sm flex items-center justify-between cursor-pointer text-black"
                     onClick={() => {
@@ -200,7 +200,7 @@ export default function PageHandler() {
             />
 
             <div
-                className="fixed bottom-5 right-5 w-48 p-3 rounded-lg bg-indigo-500 border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-sm dark:bg-zinc-200/30 dark:from-inherit" style={{ zIndex: 10000, backdropFilter: "blur(3px)" }}>
+                className="fixed bottom-5 right-5 w-48 p-3 rounded-lg border-b border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-sm bg-zinc-200/30 from-inherit" style={{ zIndex: 10000, backdropFilter: "blur(3px)" }}>
                 <div className="text-sm flex items-center justify-between cursor-pointer text-black"
                     onClick={() => {
                         setIsToggleMapSettingOpen(!isToggleMapSettingOpen);
